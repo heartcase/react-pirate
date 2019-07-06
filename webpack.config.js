@@ -24,4 +24,9 @@ module.exports = {
     new HtmlWebPackPlugin()
   ],
   entry: __dirname + '/src/index.js',
+  devServer: {
+    historyApiFallback: {
+      rewrites: [{ from: /.*/, to: "" }]
+    }
+  }
 };
