@@ -1,9 +1,15 @@
 import { actionTypes } from './constant'
 
-const setValue = value => ({
+export const setValue = value => ({
   value,
   type: actionTypes.SET_VALUE
 })
 
-export default { setValue }
+export const setValueWait = (value, time=1000) => ({
+  value,
+  time,
+  type: actionTypes.SET_VALUE_WAIT
+})
+
+export default { setValue, setValueWait }
  
