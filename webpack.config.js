@@ -10,14 +10,19 @@ module.exports = {
         use: {
           loader: "babel-loader"
         }
-      }
+      },
+      {
+        test: /\.md$/i,
+        use: 'raw-loader',
+      },
     ]
   },
   resolve: {
     alias: {
       'containers': __dirname + '/src/containers',
       'components': __dirname + '/src/components',
-      'hooks': __dirname + '/src/hooks'
+      'hooks': __dirname + '/src/hooks',
+      'markdown': __dirname + '/static/markdown'
     }
   },
   plugins: [
