@@ -1,5 +1,5 @@
 import React from 'react'
-import text from 'markdown/plainText.md'
+import text from '@markdown/plainText.md'
 import Markdown from 'react-markdown'
 import './style.css'
 
@@ -13,6 +13,14 @@ const Component = props => {
     <button onClick={() => { props.setValueWait(props.value + 1, 1000) }}>
       Click me, but wait for magic
     </button>
+    <div>
+      <button onClick={() => { props.sayHi() }}>
+        Say Hi!
+    </button>
+      <div>
+        {`The response: ${props.text || '...'}`}
+      </div>
+    </div>
     <div>Markdown</div>
     <Markdown source={text} />
   </div>

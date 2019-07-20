@@ -1,7 +1,10 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-
+  output: {
+    path: __dirname + '/dist',
+    filename: 'index_bundle.js'
+  },
   module: {
     rules: [
       {
@@ -23,19 +26,27 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'containers': __dirname + '/src/containers',
-      'components': __dirname + '/src/components',
-      'hooks': __dirname + '/src/hooks',
-      'markdown': __dirname + '/static/markdown'
+      '@api': __dirname + '/src/api/',
+      '@containers': __dirname + '/src/containers',
+      '@components': __dirname + '/src/components',
+      '@hooks': __dirname + '/src/hooks',
+      '@markdown': __dirname + '/static/markdown',
     }
   },
   plugins: [
-    new HtmlWebPackPlugin()
+    new HtmlWebpackPlugin({
+      template: __dirname + '/static/template/index.html',
+      base: '/'
+    })
   ],
   entry: __dirname + '/src/index.js',
   devServer: {
-    historyApiFallback: {
-      rewrites: [{ from: /.*/, to: "" }]
+    historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        pathRewrite: { '^/api': '' }
+      }
     }
   }
 };

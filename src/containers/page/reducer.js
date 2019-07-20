@@ -1,7 +1,7 @@
 import { actionTypes } from './constant'
 import { combineReducers } from 'redux'
 
-const setValue = (state=0, action) => {
+const setValue = (state = 0, action) => {
   switch (action.type) {
     case actionTypes.SET_VALUE:
       return action.value
@@ -10,4 +10,13 @@ const setValue = (state=0, action) => {
   }
 }
 
-export default combineReducers({ value: setValue})
+const setText = (state = '', action) => {
+  switch (action.type) {
+    case actionTypes.SET_TEXT:
+      return action.text
+    default:
+      return state
+  }
+}
+
+export default combineReducers({ value: setValue, text: setText })
