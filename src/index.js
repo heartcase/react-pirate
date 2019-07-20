@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
 import store from './store.js'
 import App from './app.js'
+import '@style/github-markdown.css'
 
 // creating root element 
 const root = document.createElement('div')

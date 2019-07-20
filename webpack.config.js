@@ -19,15 +19,12 @@ module.exports = {
         use: 'raw-loader',
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      },
-      {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         use: [
           "style-loader",
           "css-loader",
-          "sass-loader"
+          "sass-loader",
+        ]
       }
     ]
   },
@@ -38,6 +35,7 @@ module.exports = {
       '@components': __dirname + '/src/components',
       '@hooks': __dirname + '/src/hooks',
       '@markdown': __dirname + '/static/markdown',
+      '@style': __dirname + '/static/style',
     }
   },
   plugins: [

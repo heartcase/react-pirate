@@ -17,12 +17,14 @@ const Component = props => {
       <button onClick={() => { props.sayHi() }}>
         Say Hi!
     </button>
-      <div>
+      <div className='my-div'>
         {`The response: ${props.text || '...'}`}
       </div>
     </div>
-    <div>Markdown</div>
-    <Markdown source={text} />
+    <div className="markdown-body">
+      <div>Markdown</div>
+      <Markdown source={text} />
+    </div>
   </div>
 }
 
