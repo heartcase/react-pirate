@@ -14,7 +14,6 @@ function* setValueWaitWorker(action) {
 function* sayHiWorker() {
 
   const response = yield call(sayHi)
-  console.log(response.data.message)
   yield put(setText(response.data.message))
 }
 

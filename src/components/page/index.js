@@ -1,7 +1,7 @@
 import React from 'react'
 import text from '@markdown/plainText.md'
 import Markdown from 'react-markdown'
-import './style.css'
+import './style.scss'
 
 const Component = props => {
   return <div>
