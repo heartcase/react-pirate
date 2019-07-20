@@ -20,4 +20,22 @@ export const sayHi = () => ({
   type: actionTypes.GREETING
 })
 
-export default { setValue, setValueWait, setText, sayHi, }
+export const login = ({ username, password }) => ({
+  username,
+  password,
+  type: actionTypes.LOGIN
+})
+
+export const loggedin = ({ username, token }) => ({
+  username,
+  token,
+  type: actionTypes.LOGGEDIN
+})
+
+export const logout = () => (
+  {
+    type: actionTypes.LOGOUT
+  }
+)
+
+export default { setValue, setValueWait, setText, sayHi, login, loggedin, logout }

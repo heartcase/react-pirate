@@ -19,4 +19,27 @@ const setText = (state = '', action) => {
   }
 }
 
-export default combineReducers({ value: setValue, text: setText })
+const setUsername = (state = '', action) => {
+  switch (action.type) {
+    case actionTypes.LOGGEDIN:
+      return action.username
+    case actionTypes.LOGOUT:
+      return ''
+    default:
+      return state
+  }
+}
+
+const setToken = (state = '', action) => {
+  switch (action.type) {
+    case actionTypes.LOGGEDIN:
+      return action.token
+    case actionTypes.LOGOUT:
+      return ''
+    default:
+      return state
+  }
+}
+
+
+export default combineReducers({ value: setValue, text: setText, username: setUsername, token: setToken })
