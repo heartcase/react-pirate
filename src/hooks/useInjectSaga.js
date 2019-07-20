@@ -14,7 +14,8 @@ import { useEffect } from 'react'
 export const useInjectSaga = ({ key, saga }) => {
   const store = useStore();
   useEffect(() => {
-    store.injectedSagas[key] = store.runSaga(saga);
+    store.injectedSagas[key] && store.injectedSagas[key].cancel()
+    store.injectedSagas[key] = store.runSaga(saga)
   }, []);
 };
 
