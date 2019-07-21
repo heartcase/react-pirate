@@ -24,12 +24,17 @@ _主要参考的项目是[react-boilerplate][react-boilerplate]._
 
 ## 技术栈
 
-|packages| version|
+|packages| version|  
 | ------------- |:-------------:| -----:|  
 |react| 16.8.6 |  
 |redux| 4.0.1 |  
 |redux-saga| 1.0.3|  
 |semantic-ui-react| 0.87.3|  
 
+## 项目目标
+
+- [ ] 分割代码到独立的功能块下, 并由模板自动实现合并  
+- [ ] 使用最少的, 减少重复代码量
+- [ ] 减少或完全消除高阶组件(HOC)的使用, 使用Hooks代替
 
 [react-boilerplate]: https://github.com/react-boilerplate/react-boilerplate
