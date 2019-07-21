@@ -1,5 +1,6 @@
 import React from 'react'
 import Page from '@containers/page'
+import Login from '@containers/login'
 import { Switch, Route } from 'react-router-dom'
 
 const renderProps = (Components, props = {}) => (() => <Components {...props} />)
@@ -28,6 +29,11 @@ export const sitemap = [
         render: renderProps(Page, { pageName: 'Page-2' }),
       },
     ]
+  },
+  {
+    path: '/login',
+    exact: true,
+    render: renderProps(Login, { pageName: 'Pages' }),
   },
   // catch unmatched path
   {

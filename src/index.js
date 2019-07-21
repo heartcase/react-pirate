@@ -5,6 +5,7 @@ import React from 'react'
 import store from './store.js'
 import App from './app.js'
 import '@style/github-markdown.css'
+import 'semantic-ui-css/semantic.min.css'
 
 // creating root element 
 const root = document.createElement('div')
