@@ -25,7 +25,7 @@ _主要参考的项目是[react-boilerplate][react-boilerplate]._
 ## 技术栈
 
 |packages| version|  
-| ------------- |:-------------:| -----:|  
+------------ | -------------
 |react| 16.8.6 |  
 |redux| 4.0.1 |  
 |redux-saga| 1.0.3|  
