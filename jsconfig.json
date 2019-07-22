@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "baseUrl": ".",
+    "paths": {
+      "@api/*": [
+        "./src/api/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@containers/*": [
+        "./src/containers/*"
+      ],
+      "@config/*": [
+        "./src/config/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@markdown/*": [
+        "./static/markdown/*"
+      ],
+      "@style/*": [
+        "./static/style/*"
+      ],
+      "@template/*": [
+        "./static/template/*"
+      ],
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
