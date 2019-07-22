@@ -39,12 +39,15 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@api': __dirname + '/src/api/',
-      '@containers': __dirname + '/src/containers',
+      '@api': __dirname + '/src/api',
       '@components': __dirname + '/src/components',
+      '@containers': __dirname + '/src/containers',
+      '@config': __dirname + '/src/config',
       '@hooks': __dirname + '/src/hooks',
+      '@utils': __dirname + '/src/utils',
       '@markdown': __dirname + '/static/markdown',
       '@style': __dirname + '/static/style',
+      '@template': __dirname + '/static/template',
     }
   },
   plugins: [

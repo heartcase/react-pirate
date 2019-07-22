@@ -1,15 +1,16 @@
 import { actionTypes } from './constant'
 import { put, takeEvery, call, takeLatest } from 'redux-saga/effects'
-import { setValue, setText, loggedin } from './action'
+import actions from './action'
 
 import { sayHi } from '@api/greeting'
 import { login } from '@api/login'
+import { delay } from '@utils/promise'
 
-const delay = (ms) => new Promise(res => setTimeout(res, ms))
+const { setValue, setText, loggedin } = actions
 
 function* setValueWaitWorker(action) {
   yield delay(action.time)
-  yield put(setValue(action.value))
+  yield put(setValue({ value: action.value }))
 }
 
 function* sayHiWorker() {

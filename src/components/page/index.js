@@ -43,10 +43,10 @@ const Component = props => {
   return <div>
     <div>{'The page is: ' + (props.pageName || 0)}</div>
     <div>{props.value}</div>
-    <button onClick={() => { props.setValue(props.value + 1) }}>
+    <button onClick={() => { props.setValue({ value: props.value + 1 }) }}>
       Click me
     </button>
-    <button onClick={() => { props.setValueWait(props.value + 1, 1000) }}>
+    <button onClick={() => { props.setValueWait({ value: props.value + 1, time: 1000 }) }}>
       Click me, but wait for magic
     </button>
     <div>

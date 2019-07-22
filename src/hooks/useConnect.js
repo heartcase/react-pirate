@@ -12,20 +12,16 @@ import { useDispatch, useSelector } from 'react-redux'
  * @returns the feeding data to wrapped component's prop
  * 
  */
-export const useConnect = ({ key, selectors, actions }) => {
+export const useConnect = ({ key, selectors = {}, actions = {} }) => {
   const injectedProps = {}
   const dispatch = useDispatch()
   Object.entries(selectors(key)).forEach(
-    ([name, selector]) => {
-      injectedProps[name] = useSelector(selector) 
-    }
+    ([name, selector]) => { injectedProps[name] = useSelector(selector) }
   )
   Object.entries(actions).forEach(
-    ([name, action]) => { 
-      injectedProps[name] = parameters => {
-        dispatch(typeof action === 'function' ? action(parameters) : action)
-      }
-    } 
+    ([name, action]) => {
+      injectedProps[name] = parameters => { dispatch(action(parameters)) }
+    }
   )
   return injectedProps
 }
