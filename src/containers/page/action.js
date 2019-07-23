@@ -1,13 +1,16 @@
-import { getActionCreators } from '@utils/action'
+import { getActionCreators, getActionTypes } from '@utils/redux'
+import { key } from './constant'
 
-const actionConfig = {
-  setValue: { type: 'SET_VALUE', value: 0 },
-  setValueWait: { type: 'SET_VALUE_WAIT', value: 0, time: 1000 },
-  setText: { type: 'SET_TEXT', text: '' },
-  sayHi: { type: 'GREETING', },
-  login: { type: 'LOGIN', username: null, password: null },
-  login: { type: 'LOGGEDIN', username: null, token: null },
-  logout: { type: 'LOGOUT', }
+export const actionConfig = {
+  setValue: { value: 0 },
+  setValueWait: { value: 0, time: 1000 },
+  setText: { text: '' },
+  sayHi: {},
+  login: { username: null, password: null },
+  loggedin: { username: null, token: null },
+  logout: {}
 }
 
-export default { ...getActionCreators(actionConfig) }
+export const actionTypes = getActionTypes(actionConfig, key)
+
+export const actionCreators = getActionCreators(actionConfig, key)

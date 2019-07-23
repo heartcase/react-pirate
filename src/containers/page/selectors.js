@@ -1,10 +1,7 @@
-const selector = (key, name, init) => (
-  state => state[key] ? state[key][name] : init
-)
+import { createSelectorsFromReducers, simpleSelector } from '@utils/redux'
+import { reducers } from './reducer'
+import { key } from './constant'
 
-export default key => ({
-  value: selector(key, 'value', 0),
-  text: selector(key, 'text', ''),
-  username: selector(key, 'username', ''),
-  token: selector(key, 'token', ''),
-})
+export default {
+  ...createSelectorsFromReducers(key, reducers)
+}

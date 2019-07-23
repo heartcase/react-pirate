@@ -1,10 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
-
+import { ObjectForEach } from '@utils/object'
 /**
  * Custom connect hooks that create injectedProps for components wrapped by the container
  * 
- * @param { string } key
- * The identifier of the container working as namespace
  * @param { actions } [Action]
  * Collection of action object or getter function that will be dispatched by this component
  * @param { selectors } [Selector]
@@ -12,17 +10,16 @@ import { useDispatch, useSelector } from 'react-redux'
  * @returns the feeding data to wrapped component's prop
  * 
  */
-export const useConnect = ({ key, selectors = {}, actions = {} }) => {
+export const useConnect = ({ selectors = {}, actions = {} }) => {
   const injectedProps = {}
   const dispatch = useDispatch()
-  Object.entries(selectors(key)).forEach(
-    ([name, selector]) => { injectedProps[name] = useSelector(selector) }
-  )
-  Object.entries(actions).forEach(
-    ([name, action]) => {
-      injectedProps[name] = parameters => { dispatch(action(parameters)) }
-    }
-  )
+  console.log(selectors, actions)
+  ObjectForEach(selectors, (selector, name) => {
+    injectedProps[name] = useSelector(selector)
+  })
+  ObjectForEach(actions, (action, name) => {
+    injectedProps[name] = parameters => { dispatch(action(parameters)) }
+  })
   return injectedProps
 }
 

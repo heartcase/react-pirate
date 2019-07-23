@@ -1,0 +1,1 @@
+export const stringCamleToConstant = str => str.replace(/([A-Z])/g, '_$1').toUpperCase()

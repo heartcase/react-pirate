@@ -38,7 +38,6 @@ const LoginForm = props => {
   )
 }
 
-
 const Component = props => {
   return <div>
     <div>{'The page is: ' + (props.pageName || 0)}</div>

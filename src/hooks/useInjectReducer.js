@@ -18,6 +18,7 @@ export const useInjectReducer = ({ key, reducer }) => {
   useEffect(() => {
     store.injectedReducers[key] = reducer;
     store.replaceReducer(combineReducers(store.injectedReducers));
+
   }, []);
 };
 

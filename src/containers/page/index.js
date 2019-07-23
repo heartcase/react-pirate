@@ -1,16 +1,18 @@
 import React from 'react'
-import actions from './action'
-import reducer from './reducer'
-import saga from './saga'
-import selectors from './selectors'
-import Component from '@components/page'
+
 import { useInjectReducer, useInjectSaga, useConnect } from '@hooks'
+import Component from '@components/page'
+
+import reducer from './reducer'
+import selectors from './selectors'
+import { actionCreators } from './action'
+import saga from './saga'
+import { key } from './constant'
 
 const Container = props => {
-  const key = 'page'
   useInjectReducer({ key, reducer })
   useInjectSaga({ key, saga })
-  return <Component {...useConnect({ key, selectors, actions })} {...props} />
+  return <Component {...useConnect({ selectors, actions: actionCreators })} {...props} />
 }
 
 export default Container
