@@ -48,6 +48,7 @@ module.exports = {
       '@markdown': __dirname + '/static/markdown',
       '@style': __dirname + '/static/style',
       '@template': __dirname + '/static/template',
+      '@global': __dirname + '/src/global',
     }
   },
   plugins: [

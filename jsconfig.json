@@ -15,6 +15,9 @@
       "@config/*": [
         "./src/config/*"
       ],
+      "@global/*": [
+        "./src/global/*"
+      ],
       "@hooks/*": [
         "./src/hooks/*"
       ],

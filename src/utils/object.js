@@ -10,4 +10,11 @@ const ObjectFill = (obj, filling) => (
   ObjectMap(obj, (v, k) => filling[k] !== undefined ? filling[k] : v)
 )
 
-export { ObjectMap, ObjectForEach, ObjectFill }
+const ObjectIsEmpty = obj => {
+  for (const x in obj) {
+    return false
+  }
+  return true
+}
+
+export { ObjectMap, ObjectForEach, ObjectFill, ObjectIsEmpty }

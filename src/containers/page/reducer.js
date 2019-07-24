@@ -1,5 +1,6 @@
 import { actionTypes } from './action'
 import { combineReducers } from 'redux'
+import { ObjectIsEmpty } from '@utils/object'
 
 const setValue = (state = 0, action) => {
   switch (action.type) {
@@ -19,28 +20,7 @@ const setText = (state = '', action) => {
   }
 }
 
-const setUsername = (state = '', action) => {
-  switch (action.type) {
-    case actionTypes.loggedin:
-      return action.username
-    case actionTypes.logout:
-      return ''
-    default:
-      return state
-  }
-}
+export const reducers = { value: setValue, text: setText }
 
-const setToken = (state = '', action) => {
-  switch (action.type) {
-    case actionTypes.loggedin:
-      return action.token
-    case actionTypes.logout:
-      return ''
-    default:
-      return state
-  }
-}
 
-export const reducers = { value: setValue, text: setText, username: setUsername, token: setToken }
-
-export default combineReducers(reducers)
+export default ObjectIsEmpty(reducers) ? {} : combineReducers(reducers)

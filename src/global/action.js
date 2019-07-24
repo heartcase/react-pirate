@@ -2,10 +2,7 @@ import { getActionCreators, getActionTypes } from '@utils/redux'
 import { key } from './constant'
 
 export const actionConfig = {
-  setValue: { value: 0 },
-  setValueWait: { value: 0, time: 1000 },
-  setText: { text: '' },
-  sayHi: {},
+  loggedin: { username: null, token: null }
 }
 
 export const actionTypes = getActionTypes(actionConfig, key)

@@ -13,7 +13,6 @@ import { ObjectForEach } from '@utils/object'
 export const useConnect = ({ selectors = {}, actions = {} }) => {
   const injectedProps = {}
   const dispatch = useDispatch()
-  console.log(selectors, actions)
   ObjectForEach(selectors, (selector, name) => {
     injectedProps[name] = useSelector(selector)
   })

@@ -17,20 +17,9 @@ function* sayHiWorker() {
   yield put(setText({ text: response.data.message }))
 }
 
-function* loginWorker(action) {
-  try {
-    const response = yield call(login, { ...action })
-    yield put(loggedin({ username: response.data.username, token: response.data.token }))
-  }
-  catch (error) {
-    yield put(setText({ text: 'Check your username/password' }))
-  }
-}
-
 export function* saga() {
   yield takeEvery(actionTypes.setValueWait, setValueWaitWorker);
   yield takeEvery(actionTypes.sayHi, sayHiWorker);
-  yield takeLatest(actionTypes.login, loginWorker)
 }
 
 export default saga
