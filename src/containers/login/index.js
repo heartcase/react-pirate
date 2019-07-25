@@ -7,8 +7,8 @@ import { actionCreators } from './action'
 import saga from './saga'
 import { key } from './constant'
 
-const Container = props => {
+const LoginContainer = props => {
   useInjectSaga({ key, saga })
   return <Component {...useConnect({ actions: actionCreators })} {...props} />
 }
-export default Container
+export default LoginContainer

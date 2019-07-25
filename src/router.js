@@ -1,6 +1,7 @@
 import React from 'react'
 import { routeConfig } from '@config/index'
 import { Switch, Route } from 'react-router-dom'
+import { useLocation } from '@hooks/index'
 
 // transform to a flat array
 const routes = []
@@ -13,22 +14,30 @@ const addRoutes = route => {
 routeConfig.forEach(addRoutes)
 
 // create route from config
-const createRoute = config => {
-  const { path, props, name, exact = true } = config
+const createRoute = (config, globalProps = {}) => {
+  const { path, props, name, exact = true, requireLogin } = config
+  const { username } = globalProps
+  const { navigate } = useLocation()
   return <Route
     exact={exact}
     path={path}
     key={name || 'not-found'}
     render={
-      () => <config.component {...props} />
+      () => {
+        if (requireLogin && !username) {
+          navigate('/')
+          return <></>
+        }
+        return <config.component {...props} {...globalProps} />
+      }
     }
   />
 }
 
-const RouterContainer = () => {
+const RouterContainer = props => {
   return (
     <Switch>
-      {routes.map(createRoute)}
+      {routes.map(config => createRoute(config, props))}
     </Switch>
   )
 }

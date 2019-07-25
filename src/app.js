@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
-import { useInjectReducer, useInjectSaga, useConnect } from '@hooks'
+import { useInjectReducer, useConnect } from '@hooks'
 import RouterContainer from './router'
+import HeaderContainer from '@containers/header/index'
 
 import reducer from '@global/reducer'
 import { actionCreators } from '@global/action'
 import { key } from '@global/constant'
+import selectors from '@global/selectors'
 
 const App = () => {
   useInjectReducer({ key, reducer })
-  useConnect({ actions: actionCreators })
+  const injectProps = useConnect({ selectors, actions: actionCreators })
   return (
     <>
-      <RouterContainer />
+      <HeaderContainer {...injectProps} />
+      <RouterContainer {...injectProps} />
     </>
   )
 }
